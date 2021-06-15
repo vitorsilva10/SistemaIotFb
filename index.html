@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IOT</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center"> Room controll </a>
+            </div>
+            <div class="nav-content center">
+                <h6> Vitor | Lucas | Ronierison </h6>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <div class="container content">
+
+        <br />
+        <div class="row">
+            <div class="col s12 m6">
+
+                <div class="card">
+                    <div class="card-image center">
+                        <span id="currentTemp" class="statistic"></span>
+                        <h4>Temperatura</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image center">
+                        <span id="currentUmid" class="statistic">-</span>
+                        <h4>Umidade</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image center">
+                        <span id="currentDist" class="statistic"></span>
+                        <h4>Distancia</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image center">
+                        <span id="currentLum" class="statistic">-</span>
+                        <h4>Luminosidade</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col s12 m6">
+                <div class="card" style="padding-bottom:20px">
+                    <div class="card-image center">
+                        <i id="currentLamp" class="material-icons statistic">flash_on</i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title grey-text text-darken-4">
+                            Set_Luminosidade
+                        </span>
+                        <a class="waves-effect waves-light btn col s12" id="btn-lamp">
+                            <i class="material-icons left">power_settings_new</i> Ligar/Desligar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col s12 m6">
+                <div class="card" style="padding-bottom:20px">
+                    <div class="card-image center">
+                        <i id="currentMultimidia" class="material-icons statistic">local_movies</i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title grey-text text-darken-4">
+                            Set_Multimidia
+                        </span>
+                        <a class="waves-effect waves-light btn col s12" id="btn-multimidia">
+                            <i class="material-icons left">power_settings_new</i> Ligar/Desligar
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card" style="padding-bottom:20px">
+                    <div class="card-image center">
+                        <i id="currentSetPorta" class="material-icons statistic">sensor_door</i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title grey-text text-darken-4">
+                            Set_Porta
+                        </span>
+                        <a class="waves-effect waves-light btn col s12" id="btn-porta">
+                            <i class="material-icons left">power_settings_new</i> Abrir/Fechar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card" style="padding-bottom:20px">
+                    <div class="card-image center">
+                        <i id="currentSetAr" class="material-icons statistic">ac_unit</i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title grey-text text-darken-4">
+                            Set_Ar
+                        </span>
+                        <a class="waves-effect waves-light btn col s12" id="btn-ar">
+                            <i class="material-icons left">power_settings_new</i> Abrir/Fechar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="conteudo">
+
+
+            <div class="col s12 m6">
+                <div class="card-porta">
+                    <h5 id="porta-title">Porta Aberta</h5>
+                    <img id="porta" src="Porta-Fechada.png" alt="">
+                </div>
+            </div>
+
+
+
+            <div class="col s12 m6">
+                <div class="card-porta">
+                    <h5 id="presenca-title">Ausência</h5>
+                    <img id="presenca" src="nopresence.jpg" alt="">
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyC33u8HEkev-9rYo3AwpECVjnxZnhC9O2I",
+            authDomain: "roomcontroll.firebaseapp.com",
+            databaseURL: "https://roomcontroll-default-rtdb.firebaseio.com",
+            projectId: "roomcontroll",
+            storageBucket: "roomcontroll.appspot.com",
+            messagingSenderId: "156225306274",
+            appId: "1:156225306274:web:a30f681fa573cd07d1e1fb",
+            measurementId: "G-LSEC90P626"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</body>
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>

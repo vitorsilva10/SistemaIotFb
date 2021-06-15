@@ -1,0 +1,75 @@
+body {
+  background-color: #E0E0E0;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+nav {
+  background-color: #2E4053;
+}
+
+.statistic {
+  font-size: 8em;
+  margin-top: 15px !important;
+}
+
+.card {
+  min-height: 20px;
+}
+
+.activator {
+  cursor: pointer;
+}
+
+#img {
+  padding-top: 1rem;
+}
+
+
+#porta-title {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 20px;
+  
+}
+
+#presenca {
+
+  width: 60%;
+  height: 75%;
+}
+
+
+#porta {
+
+  width: 60%;
+  height: 75%;
+}
+
+.card-porta{
+  width: 360px;
+  height: 300px;
+  overflow: hidden;
+  margin: 20px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+}
+
+
+.conteudo{
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+@media screen and (max-width: 600px) {
+  .statistic {
+    font-size: 5em;
+  }
+}
